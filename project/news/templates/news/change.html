@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'news/css/style.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change your News</title>
+</head>
+<body>
+    <form class="form" method="post" action="">
+        {% csrf_token %}
+        <div class="form-input-wrapper">
+            {{ form.title.label_tag }}
+            <input class="form-input" type="textarea" name="title" value="{{ post.title }}">
+        </div>
+        <div class="form-textarea-wrapper">
+            {{ form.content.label_tag }}
+            <input class="form-textarea" type="text" name="content" value="{{ post.content }}">
+        </div>
+        <div class="form-input-wrapper">
+            {{ form.urladdress.label_tag }}
+            <input class="form-input" type="text" name="urladdress" value="{{ post.urladdress }}">
+        </div>
+        <div class="form-input-wrapper">
+            {{ form.isPublic.label_tag }}
+            <input class="form-checkbox" type="checkbox" name="isPublic" value="{{ post.isPublic }}">
+        </div>
+        <div class="form-input-wrapper">
+            {{ form.category.label_tag }}
+            <select class="form-input" name="category">
+                {% for opt in form.category %}
+                {{opt}}
+                {% endfor%}
+            </select>
+        </div>
+        <button class="form-add-button">Change</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'news/css/style.css' %}">
+    <title>Create your News</title>
+</head>
+<body>
+    <form class="form" method="post" action="">
+        {% csrf_token %}
+        <div class="form-input-wrapper">
+            {{ form.title.label_tag}}
+            {{ form.title}}
+        </div>
+        <div class="form-textarea-wrapper">
+            {{ form.content.label_tag}}
+            {{ form.content}}
+        </div>
+        <div class="form-input-wrapper">
+            {{ form.urladdress.label_tag}}
+            {{ form.urladdress}}
+        </div>
+        <div class="form-input-wrapper">
+            {{ form.isPublic.label_tag}}
+            <div class="form-checkbox-wrapper">
+                {{ form.isPublic}}
+            </div>
+        </div>
+        <div class="form-input-wrapper">
+            {{ form.category.label_tag}}
+            {{ form.category}}
+        </div>
+        <button class="form-add-button">ADD</button>
+    </form>
+    
+</body>
+</html>

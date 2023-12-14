@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'news/css/style.css' %}">
+    <title>News</title>
+</head>
+<body>
+    <div class="posts-centering">
+        {% for post in newsPosts %}
+        <div class="post">
+            <p class="post-title">{{ post.title }}</p>
+            <p class="post-content">{{ post.content }}</p>
+            <div class="links-wrapper">
+                <a href="{% url 'change' post.id %}">Change</a>
+                <a href="{% url 'delete' post.id %}">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
